@@ -1,2 +1,3 @@
-# corelyn-react
-Corelyn react version in testing
+# __Corelyn React Beta__
+Corelyn will now be new AND faster than ever!  
+Not only that, Corelyn can get updated even faster too!
