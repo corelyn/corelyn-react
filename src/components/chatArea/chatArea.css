@@ -1,0 +1,22 @@
+.chatarea {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background: var(--chatbg);
+    background-color: #141416;
+}
+
+#messageInput {
+    padding: 0.75rem;
+    border: 1px solid #847c96;
+    border-radius: 3rem;
+    font-size: 1rem;
+    margin: 1.4rem;
+    margin-top: auto;
+    width: calc(100% - 2rem);
+    resize: none;
+    outline:none;
+    background-color: #1a1120;
+    color: #fff;
+}

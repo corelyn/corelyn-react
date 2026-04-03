@@ -1,4 +1,30 @@
 .modal_holder {
     background-color: rgba(0,0,0,0.5);
     z-index:500;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal_title {
+    background-color: #050624;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal {
+    background-color: #111120;
+    color: #fff;
+    border-radius:1rem;
+    overflow:hidden;
+}
+.modal_title, .modal_content {
+    padding: 0.8rem;
+}
+.modal_content {
+    overflow:auto;
 }
