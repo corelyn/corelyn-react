@@ -1,12 +1,9 @@
-import logo from '../assets/logo.png';
+import { Navbar } from '../components/navbar/navbar';
 
 export const Home = () => {
     return (
         <>
-            <nav>
-                {/* logo */}
-                <img src={logo} alt="Corelyn logo" className="logo" />
-            </nav>
+            <Navbar />
         </>
     )
 }

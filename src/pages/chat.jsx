@@ -6,7 +6,6 @@ export const Chat = () => {
         <div className="chat" style={{ display: 'flex', height: '100vh'}}>
             <Sidebar />
             <Chatarea />
-            
         </div>
     )
 } 

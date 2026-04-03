@@ -8,11 +8,6 @@ function App() {
   return (
     <Router>
       <div className="app-shell" style={{ minHeight: '100vh', backgroundColor: '#111111' }}>
-        <header className="app-nav">
-          <Link to="/" className="app-link">Home</Link>
-          <Link to="/chat" className="app-link">Chat</Link>
-        </header>
-
         <main>
           <Routes>
             <Route path="/" element={<Home />} />

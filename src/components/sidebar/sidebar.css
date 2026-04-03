@@ -28,3 +28,8 @@
     font-weight: 600;
     margin: 0;
 }
+.sidebar_buttons {
+    margin-left: auto;
+    display: flex;
+    gap: 0.5rem;
+}
