@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './chatArea.css'
-
+import { Button } from '../button/button.jsx';
 export const Chatarea = () => {
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
@@ -33,16 +33,19 @@ export const Chatarea = () => {
                         {msg.text}
                     </div>
                 ))}
-                {isLoading && <div className="idle">Waiting for response...</div>}
+                {isLoading && <div className="idle bot-message">Waiting for response...</div>}
             </div>
-            <input
-                id="messageInput"
-                type="text"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                onKeyDown={handleSubmit}
-                placeholder="Type a message..."
-            />
+            <div className='input-box'>
+                <input
+                    id="messageInput"
+                    type="text"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    onKeyDown={handleSubmit}
+                    placeholder="Type a message..."
+                />
+                <a id="disclaimer"><p>Corelyn can make mistakes.  Vertify important info.</p></a>
+            </div>
         </div>
     )
 };
