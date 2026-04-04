@@ -1,3 +1,4 @@
+/* Just the modal :3 */
 .modal_holder {
     background-color: rgba(0,0,0,0.5);
     z-index:500;
@@ -9,22 +10,43 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
 }
 .modal_title {
-    background-color: #050624;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color:white;
 }
 .modal {
-    background-color: #111120;
-    color: #fff;
+    font-family: var(--mono);
+    background-color: #1c1c1f;
+    color: var(--text);
     border-radius:1rem;
     overflow:hidden;
+    color:grey;
+    padding:0.5rem;
+    border:1.5px solid rgba(255,255,255,0.07);
+    transform: scale(0.8);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 .modal_title, .modal_content {
+    background-color: #1c1c1f;
     padding: 0.8rem;
 }
 .modal_content {
     overflow:auto;
+}
+
+.modal_holder.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal.open {
+    transform: scale(1);
+    opacity: 1;
 }

@@ -5,13 +5,21 @@
     width: 100%;
     background: var(--chatbg);
     background-color: #141416;
+    font-family: var(--mono);
+    --margin: 1rem;
+}
+
+.messages-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 }
 
 #messageInput {
     padding: 0.75rem;
     border: 1.5px solid #847c96;
     border-radius: 3rem;
-    box-shadow: 0px 0px 0px 4px rgba(104, 39, 255, 0.5);
+    box-shadow: 0px 0px 0px 4px rgba(104, 39, 255, 0.2);
     font-size: 1rem;
     margin: 1.4rem;
     margin-top: auto;
@@ -20,4 +28,33 @@
     outline:none;
     background-color: #1a1120;
     color: #fff;
+    width:40%;
+    margin-left:50%;
+    transform:translateX(-50%);
+}
+
+.user-message {
+    --border-radius:0.5rem;
+    text-align: right;
+    background-color: #1e1c30;
+    width:fit-content;
+    margin:var(--margin) var(--margin) var(--margin) auto;
+    border-radius: var(--border-radius) var(--border-radius) 1px var(--border-radius);
+    border: 1px solid rgba(124,106,255,0.2);
+    padding:1rem;
+}
+
+.bot-message {
+    text-align: left;
+    width:fit-content;
+    margin-right: auto;
+    margin:var(--margin);
+    padding:1rem;
+}
+
+.idle {
+    color: #ccc;
+    font-size: 0.95rem;
+    opacity: 0.85;
+    margin: var(--margin);
 }

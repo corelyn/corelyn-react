@@ -1,13 +1,17 @@
 import './button.css'
 
-export const Button = (props) => {
+export const Button = ({ className = '', square = false, scale, onClick, children, ...rest }) => {
+    const buttonClass = `button${square ? ' square' : ''}${className ? ` ${className}` : ''}`;
+    const buttonStyle = scale ? { padding: scale } : undefined;
+
     return (
-        <button 
-        className="button" 
-        onClick={props.onClick}
-        style={{padding: props.scale}}
+        <button
+            className={buttonClass}
+            onClick={onClick}
+            style={buttonStyle}
+            {...rest}
         >
-            {props.children}
+            {children}
         </button>
     );
 }

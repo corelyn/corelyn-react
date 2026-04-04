@@ -8,11 +8,12 @@
     gap: 1rem;
 }
 .sidebarBrand {
+    --top-bottom:10px;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     border-bottom:1px solid #303030;
-    padding-bottom:7px;
+    padding: var(--top-bottom) 0 var(--top-bottom) 0;
 }
 .sidebarLogo {
     width: 48px;
