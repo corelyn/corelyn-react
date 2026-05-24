@@ -12,6 +12,14 @@ const models = [
     ""
 ];
 
+export function save_api_key(apiKey) {
+    localStorage.setItem('api_key', apiKey);
+}
+
+export function getApiKey() {
+    return localStorage.getItem('api_key') || '';
+}
+
 export const LynStore = () => {
     const [open, setOpen] = useState(false);
 
@@ -23,52 +31,62 @@ export const LynStore = () => {
     );
 }
 
-
-
-const ApiKey = () => {
-    let [openapi, setOpenapi] = useState(false);
+export const ApiKey = () => {
+    const [openapi, setOpenapi] = useState(false);
+    const [apiKey, setApiKey] = useState(() => localStorage.getItem('api_key') || '');
     
     return (
         <>
-        <Modal isOpen={openapi} onClose={() => setOpenapi(false)}>
-            Put your API key here: <input type="text" placeholder="i forgot the name, gonna fix later. PRANKAPPLE!-..." /><br></br>
-            <p>Never share your API key with anyone!</p>
-            <Button onClick={() => setOpenapi(false)}>Save</Button>
-        </Modal>
+            <Button onClick={() => setOpenapi(true)}>API Key</Button>
+            <Modal isOpen={openapi} onClose={() => setOpenapi(false)}>
+                <label htmlFor="api-key">Put your API key here:</label>
+                <input
+                    id="api-key"
+                    type="text"
+                    value={apiKey}
+                    onChange={(event) => setApiKey(event.target.value)}
+                    placeholder="Enter your API key"
+                />
+                <br />
+                <p>Never share your API key with anyone!</p>
+                <Button onClick={() => {
+                    save_api_key(apiKey);
+                    setOpenapi(false);
+                }}>
+                    Save
+                </Button>
+            </Modal>
         </>
     );
 }
 
-
-async function getAIResponse(userPrompt, apiKey, model, lyn) {
+export async function getAIResponse(userPrompt, model = 'cerebras/llama3.1-8b', lyn = 'You are Corelyn') {
+    const apiKey = getApiKey();
+    if (!apiKey) {
+        throw new Error('No API key found. Please save your API key in the sidebar.');
+    }
   try {
     const res = await fetch("https://api.corelyn.ro/chat/completions", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        apiKey: apiKey, // Add your api key here
-        model: model, // Replace with your model
+        apiKey: apiKey,
+        model: model,
         messages: [
-          { role: "system", content: lyn }, // system instruction
-          { role: "user", content: userPrompt }                         // user input
+          { role: "system", content: lyn },
+          { role: "user", content: userPrompt }
         ]
       })
     });
 
     const data = await res.json();
 
-    // Log full AI response
     console.log("AI Response:", data);
 
-    // Return just the text of the first choice
     return data.choices?.[0]?.message?.content || data.text || data;
 
   } catch (err) {
     console.error("Error fetching AI response:", err);
-    return null;
+    throw err;
   }
 }
-
-getAIResponse("What is your name?").then(response => {
-  console.log("Final Response:", response);
-});

@@ -5,7 +5,7 @@ import logo from '../../assets/logo.png'
 import { SettingsModal } from './settingsModal.jsx';
 import { Button } from '../button/button.jsx';
 import settings from '../../assets/button_images/settings.svg'
-import { LynStore } from '../api/api.jsx'
+import { LynStore, ApiKey } from '../api/api.jsx'
 
 export const Sidebar = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -20,8 +20,8 @@ export const Sidebar = () => {
                         <img src={settings} alt="Settings" height="16" />
                     </Button>
                     <SettingsModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+                    <ApiKey />
                     <LynStore />
-
                 </div>
             </div>
             <Conversations />
