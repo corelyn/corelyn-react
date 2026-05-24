@@ -1,15 +1,23 @@
 import { Navbar } from '../components/navbar/navbar';
 import logo from '../assets/logo.png'
 import reactlogo from '../assets/react.svg'
+import './home.css'
+import xlogo from '../assets/x.svg'
+
 export const Home = () => {
     return (
-        <div style={{
-            "background-image": "linear-gradient( #252b46 1px, transparent 1px), linear-gradient(90deg, #252b46 1px, transparent 1px)",
-  "background-size": "40px 40px", "width": "100vw", "height": "100%", "display": "flex", "flex-direction": "column"
-  }} className="home-container">
+        <div className="home-container">
             <Navbar />
             <section>
-                <img className="logo" src={logo} alt="Logo" /> X <img className="logo" src={reactlogo} alt="React Logo"/>
+                <div className="home-logos">
+                    <img className="logo" src={logo} alt="Logo" />
+                    <img className="logo x-logo" src={xlogo} alt="X Logo" />
+                    <img className="logo" src={reactlogo} alt="React Logo" />
+                </div>
+                <div className="home-text">
+                    <h1 className="home-title" style={{ fontSize: '5rem' }}>Corelyn AI</h1>
+                    <p className="home-description" style={{ color: 'gray' }}>- Intelligence, engineered for you -</p>
+                </div>
             </section>
         </div>
     )

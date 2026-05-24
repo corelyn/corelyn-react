@@ -7,7 +7,7 @@ import { Chat } from "./pages/chat.jsx"
 function App() {
   return (
     <Router>
-      <div className="app-shell" style={{ minHeight: '100vh', backgroundColor: '#111111' }}>
+      <div className="app-shell" style={{ height: '100%', backgroundColor: '#111111' }}>
         <main>
           <Routes>
             <Route path="/" element={<Home />} />

@@ -1,0 +1,51 @@
+:root {
+    --line-distance: 60px;
+}
+
+.home-container {
+    --line-color: #1c2030;
+    background-image: linear-gradient( var(--line-color) 1px, transparent 1px), linear-gradient(90deg, var(--line-color) 1px, transparent 1px);
+    background-size: var(--line-distance) var(--line-distance);
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    flex-direction: column;
+    animation: lineMove 2s linear infinite;
+}
+@keyframes lineMove {
+    0% {
+        background-position: 0 0, 0 0;
+    }
+    100% {
+        background-position: var(--line-distance) var(--line-distance), var(--line-distance) var(--line-distance);
+    }
+}
+
+.home-container section {
+    --side-margin: 30rem;
+    --up-down-margin: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: auto;
+    background: rgba(1, 1, 10, 0.404);
+    margin:var(--up-down-margin) var(--side-margin);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4rem;
+    padding: 2rem;
+    box-shadow: 0 0 20px rgba(255, 23, 236, 0.582);
+}
+
+.logo {
+    --IconSize: 10rem;
+    width: var(--IconSize);
+    height: var(--IconSize);
+    object-fit: contain;
+}
+
+#x-logo {
+    --colr: #7114a7c4;
+    filter: drop-shadow(0 0 5px var(--colr)) drop-shadow(0 0 10px var(--colr));
+}
